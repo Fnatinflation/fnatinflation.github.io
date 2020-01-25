@@ -1,0 +1,1 @@
+# fnatinflation.github.io
