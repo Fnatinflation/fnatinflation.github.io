@@ -10159,19 +10159,13 @@ function (_React$Component) {
           lineNumber: 7
         },
         __self: this
-      }, __jsx("p", {
+      }, __jsx("h1", {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 8
         },
         __self: this
-      }, "Hej"), __jsx(_Components_Form__WEBPACK_IMPORTED_MODULE_8__["default"], {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 9
-        },
-        __self: this
-      }));
+      }, "Mathias Laursens store side om livet"));
     }
   }]);
 
@@ -10182,7 +10176,7 @@ function (_React$Component) {
 
 /***/ }),
 
-/***/ 3:
+/***/ 1:
 /*!***************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=C%3A%5CUsers%5CMathias%5CIdeaProjects%5Cfnatinflation.github.io%5Cpages%5Cindex.js ***!
   \***************************************************************************************************************************************************/
@@ -10205,5 +10199,5 @@ module.exports = dll_5f137288facb1107b491;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map
