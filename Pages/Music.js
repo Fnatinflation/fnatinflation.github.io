@@ -1,12 +1,15 @@
 import Header from '../components/Header';
 import Layout from '../Components/Layout';
 import Form from '../Components/Form';
+import Post from '../Components/Post';
 class Music extends React.Component {
+
     render() {
         return (
             <Layout>
-                <p>Hej</p>
-                <Form></Form>
+                <p>Tilføj post</p>
+                <Form/>
+                <Post></Post>
             </Layout>
         );
     }

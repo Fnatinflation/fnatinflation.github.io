@@ -93,6 +93,38 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
+/***/ "./Components/Firestore.js":
+/*!*********************************!*\
+  !*** ./Components/Firestore.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! firebase */ "firebase");
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(firebase__WEBPACK_IMPORTED_MODULE_0__);
+
+var firebaseConfig = {
+  apiKey: "AIzaSyDSezQlKpXeA0D6YZ7M0Hq9Xq6XtJWjvTM",
+  authDomain: "firstweb-304f2.firebaseapp.com",
+  databaseURL: "https://firstweb-304f2.firebaseio.com",
+  projectId: "firstweb-304f2",
+  storageBucket: "firstweb-304f2.appspot.com",
+  messagingSenderId: "383518059850",
+  appId: "1:383518059850:web:ebd87272f122e0712265b3",
+  measurementId: "G-YT5F8JPX2M"
+}; // Initialize Firebase
+
+if (!firebase__WEBPACK_IMPORTED_MODULE_0___default.a.apps.length) {
+  firebase__WEBPACK_IMPORTED_MODULE_0___default.a.initializeApp(firebaseConfig);
+  firebase__WEBPACK_IMPORTED_MODULE_0___default.a.analytics();
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (firebase__WEBPACK_IMPORTED_MODULE_0___default.a);
+
+/***/ }),
+
 /***/ "./Components/Form.js":
 /*!****************************!*\
   !*** ./Components/Form.js ***!
@@ -104,52 +136,91 @@ module.exports =
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Firestore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Firestore */ "./Components/Firestore.js");
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! firebase */ "firebase");
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(firebase__WEBPACK_IMPORTED_MODULE_2__);
 var _jsxFileName = "C:\\Users\\Mathias\\IdeaProjects\\fnatinflation.github.io\\Components\\Form.js";
-
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
 
 class Form extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
   constructor(props) {
     super(props);
 
-    _defineProperty(this, "handleSubmit", event => {
-      event.preventDefault();
+    _defineProperty(this, "addPost", e => {
+      e.preventDefault();
+      const db = firebase__WEBPACK_IMPORTED_MODULE_2___default.a.firestore();
+      const userRef = db.collection('posts').add({
+        topic: this.state.topic,
+        subject: this.state.subject
+      });
       this.setState({
-        name: this.element.value
+        topic: '',
+        subject: ''
+      });
+    });
+
+    _defineProperty(this, "updateInput", e => {
+      this.setState({
+        [e.target.name]: e.target.value
       });
     });
 
     this.state = {
-      name: ''
+      topic: '',
+      subject: ''
     };
   }
 
   render() {
     const {
-      name,
-      data
+      topic,
+      subject
     } = this.state;
     return __jsx("form", {
-      onSubmit: this.handleSubmit,
+      onSubmit: this.addPost,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 16
+        lineNumber: 36
       },
       __self: this
     }, __jsx("label", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 17
+        lineNumber: 37
       },
       __self: this
-    }, "Name:", __jsx("input", {
+    }, "Topic:", __jsx("input", {
       type: "text",
+      name: "topic",
+      value: topic,
       ref: el => this.element = el,
+      onChange: this.updateInput,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 19
+        lineNumber: 39
+      },
+      __self: this
+    })), __jsx("label", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 41
+      },
+      __self: this
+    }, "Subject:", __jsx("input", {
+      type: "text",
+      name: "subject",
+      value: subject,
+      ref: el => this.element = el,
+      onChange: this.updateInput,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 43
       },
       __self: this
     })), __jsx("input", {
@@ -157,16 +228,10 @@ class Form extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       value: "Submit",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 21
+        lineNumber: 45
       },
       __self: this
-    }), __jsx("p", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 22
-      },
-      __self: this
-    }, "You entered ", name));
+    }));
   }
 
 }
@@ -195,29 +260,17 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 const linkStyle = {
   marginRight: 15
 };
+const boxStyle = {};
 
 const Header = () => __jsx("div", {
+  style: boxStyle,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 8
+    lineNumber: 11
   },
   __self: undefined
 }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
   href: "/",
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 9
-  },
-  __self: undefined
-}, __jsx("a", {
-  style: linkStyle,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 10
-  },
-  __self: undefined
-}, "Home")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-  href: "/music",
   __source: {
     fileName: _jsxFileName,
     lineNumber: 12
@@ -228,6 +281,20 @@ const Header = () => __jsx("div", {
   __source: {
     fileName: _jsxFileName,
     lineNumber: 13
+  },
+  __self: undefined
+}, "Home")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+  href: "/music",
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 15
+  },
+  __self: undefined
+}, __jsx("a", {
+  style: linkStyle,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 16
   },
   __self: undefined
 }, "Music")));
@@ -253,7 +320,6 @@ var _jsxFileName = "C:\\Users\\Mathias\\IdeaProjects\\fnatinflation.github.io\\C
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 const layoutStyle = {
-  margin: 20,
   padding: 20,
   border: '1px solid #DDD'
 };
@@ -262,18 +328,109 @@ const Layout = props => __jsx("div", {
   style: layoutStyle,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 10
+    lineNumber: 9
   },
   __self: undefined
 }, __jsx(_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 11
+    lineNumber: 10
   },
   __self: undefined
 }), props.children);
 
 /* harmony default export */ __webpack_exports__["default"] = (Layout);
+
+/***/ }),
+
+/***/ "./Components/Post.js":
+/*!****************************!*\
+  !*** ./Components/Post.js ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase */ "firebase");
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(firebase__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "C:\\Users\\Mathias\\IdeaProjects\\fnatinflation.github.io\\Components\\Post.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+const postStyle = {
+  margin: 20,
+  padding: 20,
+  border: '1px solid #DDD'
+};
+
+class PostList extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+  constructor(...args) {
+    super(...args);
+
+    _defineProperty(this, "state", {
+      posts: []
+    });
+  }
+
+  componentDidMount() {
+    firebase__WEBPACK_IMPORTED_MODULE_1___default.a.firestore().collection("posts").get().then(querySnapshot => {
+      const posts = [];
+      querySnapshot.forEach(function (doc) {
+        posts.push({
+          topic: doc.data().topic,
+          subject: doc.data().subject
+        });
+      });
+      this.setState({
+        posts
+      });
+    }).catch(function (error) {
+      console.log("Error getting documents: ", error);
+    });
+  }
+
+  render() {
+    return __jsx("div", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 35
+      },
+      __self: this
+    }, this.state.posts.map((v, i) => {
+      return __jsx("div", {
+        key: i,
+        id: "postDiv",
+        style: postStyle,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 38
+        },
+        __self: this
+      }, __jsx("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 39
+        },
+        __self: this
+      }, "topic:", v.topic, __jsx("br", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 41
+        },
+        __self: this
+      }), "subject: ", v.subject));
+    }));
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (PostList);
 
 /***/ }),
 
@@ -297,29 +454,17 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 const linkStyle = {
   marginRight: 15
 };
+const boxStyle = {};
 
 const Header = () => __jsx("div", {
+  style: boxStyle,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 8
+    lineNumber: 11
   },
   __self: undefined
 }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
   href: "/",
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 9
-  },
-  __self: undefined
-}, __jsx("a", {
-  style: linkStyle,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 10
-  },
-  __self: undefined
-}, "Home")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-  href: "/music",
   __source: {
     fileName: _jsxFileName,
     lineNumber: 12
@@ -330,6 +475,20 @@ const Header = () => __jsx("div", {
   __source: {
     fileName: _jsxFileName,
     lineNumber: 13
+  },
+  __self: undefined
+}, "Home")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+  href: "/music",
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 15
+  },
+  __self: undefined
+}, __jsx("a", {
+  style: linkStyle,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 16
   },
   __self: undefined
 }, "Music")));
@@ -2023,9 +2182,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Header */ "./components/Header.js");
 /* harmony import */ var _Components_Layout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/Layout */ "./Components/Layout.js");
 /* harmony import */ var _Components_Form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/Form */ "./Components/Form.js");
+/* harmony import */ var _Components_Post__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Components/Post */ "./Components/Post.js");
 var _jsxFileName = "C:\\Users\\Mathias\\IdeaProjects\\fnatinflation.github.io\\pages\\music.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 
@@ -2035,19 +2196,25 @@ class Music extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
     return __jsx(_Components_Layout__WEBPACK_IMPORTED_MODULE_2__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 7
+        lineNumber: 9
       },
       __self: this
     }, __jsx("p", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 8
+        lineNumber: 10
       },
       __self: this
-    }, "Hej"), __jsx(_Components_Form__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    }, "Tilf\xF8j post"), __jsx(_Components_Form__WEBPACK_IMPORTED_MODULE_3__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 9
+        lineNumber: 11
+      },
+      __self: this
+    }), __jsx(_Components_Post__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 12
       },
       __self: this
     }));
@@ -2123,6 +2290,17 @@ module.exports = require("core-js/library/fn/symbol/iterator");
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/library/fn/weak-map");
+
+/***/ }),
+
+/***/ "firebase":
+/*!***************************!*\
+  !*** external "firebase" ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("firebase");
 
 /***/ }),
 

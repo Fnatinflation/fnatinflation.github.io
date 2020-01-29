@@ -4,8 +4,11 @@ const linkStyle = {
   marginRight: 15
 };
 
+const boxStyle = {
+};
+
 const Header = () => (
-  <div>
+  <div style={boxStyle}>
     <Link href="/">
       <a style={linkStyle}>Home</a>
     </Link>
