@@ -7,7 +7,7 @@ const postStyle = {
 }
 class PostList extends React.Component {
     state = { posts: [] };
-    
+
     componentDidMount() {
         firebase
             .firestore()
@@ -33,16 +33,18 @@ class PostList extends React.Component {
     render() {
         return (
             <div>
-                {this.state.posts.map((v,i) => {
+                {this.state.posts.map((v, i) => {
                     return (
                         <div key={i} id="postDiv" style={postStyle}>
-                        <p> 
-                            topic:{v.topic}
-                             <br></br>
-                             subject: {v.subject}
-                        </p>
+                            <h1>
+                                {v.topic}
+                            </h1>
+                            <br></br>
+                            <p>
+                                {v.subject}
+                            </p>
                         </div>
-              );
+                    );
                 })}
             </div>
         );

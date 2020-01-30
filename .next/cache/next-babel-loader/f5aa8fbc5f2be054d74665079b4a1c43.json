@@ -1,0 +1,1 @@
+{"ast":null,"code":"import 'bootstrap/dist/css/bootstrap.min.css';\nexport default _app;","map":{"version":3,"sources":["C:/Users/Mathias/IdeaProjects/fnatinflation.github.io/Pages/_App.js"],"names":["_app"],"mappings":"AAAA,OAAO,sCAAP;AACA,eAAeA,IAAf","sourcesContent":["import 'bootstrap/dist/css/bootstrap.min.css';\r\nexport default _app"]},"metadata":{},"sourceType":"module"}

@@ -1,6 +1,12 @@
 import React from 'react';
 import firestore from "./Firestore";
 import firebase from 'firebase';
+
+const formStyle = {
+    margin: 20,
+    padding: 20,
+    border: '1px solid #DDD'
+}
 class Form extends React.Component {
     constructor(props) {
         super(props)
@@ -16,7 +22,7 @@ class Form extends React.Component {
         const userRef = db.collection('posts').add({
             topic: this.state.topic,
             subject: this.state.subject
-        });
+        }).then(()=>window.location.reload())
         this.setState({
             topic: '',
             subject: ''
@@ -33,17 +39,19 @@ class Form extends React.Component {
     render() {
         const { topic, subject } = this.state
         return (
-            <form onSubmit={this.addPost}>
-                <label>
-                    Topic:
-                 <input type="text" name="topic" value={topic} ref={el => this.element = el} onChange={this.updateInput} />
-                </label>
-                <label>
-                    Subject:
-                 <input type="text" name="subject" value={subject} ref={el => this.element = el} onChange={this.updateInput} />
-                </label>
-                <input type="submit" value="Submit" />
-            </form>
+            <div style={formStyle}>
+                <p>Add post</p>
+                <form onSubmit={this.addPost} >
+                    <label>
+                 <input type="text" placeholder="Topic" name="topic" value={topic} ref={el => this.element = el} onChange={this.updateInput} />
+                    </label>
+                    <br></br>
+                    <label>
+                 <input type="text" placeholder="Subhect" name="subject" value={subject} ref={el => this.element = el} onChange={this.updateInput} />
+                    </label>
+                    <input type="submit" value="Submit" />
+                </form>
+            </div>
         );
     }
 }
