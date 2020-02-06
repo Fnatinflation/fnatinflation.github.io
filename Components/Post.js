@@ -1,9 +1,16 @@
 import React from 'react';
 import firebase from 'firebase'
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
+
 const postStyle = {
     margin: 20,
     padding: 20,
-    border: '1px solid #DDD'
+    border: '3px solid #DDD',
+    height: "500px"
+
 }
 class PostList extends React.Component {
     state = { posts: [] };
@@ -31,22 +38,32 @@ class PostList extends React.Component {
     }
 
     render() {
+        let columns = [];
+        this.state.posts.map((v, i) => {
+            columns.push(
+                <Col>
+                    <div key={i} id="postDiv" style={postStyle}>
+                        <h1 style={{textAlign:"center"}}>
+                            {v.topic}
+                        </h1>
+                        <br></br>
+                        <p>
+                            {v.subject}
+                        </p>
+                    </div>
+                </Col>
+            )
+
+            if ((i + 1) % 3 === 0) {
+                columns.push(<div className="w-100"></div>)
+            }
+        })
         return (
-            <div>
-                {this.state.posts.map((v, i) => {
-                    return (
-                        <div key={i} id="postDiv" style={postStyle}>
-                            <h1>
-                                {v.topic}
-                            </h1>
-                            <br></br>
-                            <p>
-                                {v.subject}
-                            </p>
-                        </div>
-                    );
-                })}
-            </div>
+            <di>
+                <Row>
+                    {columns}
+                </Row>
+            </di>
         );
     }
 }

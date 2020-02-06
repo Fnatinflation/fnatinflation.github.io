@@ -7,10 +7,15 @@ class Posts extends React.Component {
     render() {
         return (
             <Layout>
+                    <h1 style={headerText}>Posts</h1>
                 <Post></Post>
                 <Form/>
             </Layout>
         );
     }
+}
+const headerText = {
+    textAlign: "center",
+    padding: "10px"
 }
 export default Posts;

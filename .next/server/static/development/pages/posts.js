@@ -344,6 +344,13 @@ const Header = () => __jsx(react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_2___d
     lineNumber: 17
   },
   __self: undefined
+}, "Posts"), __jsx(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_3___default.a.Link, {
+  href: "/musictaste",
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 18
+  },
+  __self: undefined
 }, "Posts")));
 
 /* harmony default export */ __webpack_exports__["default"] = (Header);
@@ -418,6 +425,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase */ "firebase");
 /* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(firebase__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-bootstrap/Container */ "react-bootstrap/Container");
+/* harmony import */ var react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-bootstrap/Row */ "react-bootstrap/Row");
+/* harmony import */ var react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-bootstrap/Col */ "react-bootstrap/Col");
+/* harmony import */ var react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_4__);
 var _jsxFileName = "C:\\Users\\Mathias\\IdeaProjects\\fnatinflation.github.io\\Components\\Post.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -425,10 +438,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
+
+
 const postStyle = {
   margin: 20,
   padding: 20,
-  border: '1px solid #DDD'
+  border: '3px solid #DDD',
+  height: "500px"
 };
 
 class PostList extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
@@ -458,42 +475,70 @@ class PostList extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
   }
 
   render() {
-    return __jsx("div", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 35
-      },
-      __self: this
-    }, this.state.posts.map((v, i) => {
-      return __jsx("div", {
+    let columns = [];
+    this.state.posts.map((v, i) => {
+      columns.push(__jsx(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_4___default.a, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 44
+        },
+        __self: this
+      }, __jsx("div", {
         key: i,
         id: "postDiv",
         style: postStyle,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 38
+          lineNumber: 45
         },
         __self: this
       }, __jsx("h1", {
+        style: {
+          textAlign: "center"
+        },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 39
+          lineNumber: 46
         },
         __self: this
       }, v.topic), __jsx("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 42
+          lineNumber: 49
         },
         __self: this
       }), __jsx("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 43
+          lineNumber: 50
         },
         __self: this
-      }, v.subject));
-    }));
+      }, v.subject))));
+
+      if ((i + 1) % 3 === 0) {
+        columns.push(__jsx("div", {
+          className: "w-100",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 58
+          },
+          __self: this
+        }));
+      }
+    });
+    return __jsx("di", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 62
+      },
+      __self: this
+    }, __jsx(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_3___default.a, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 63
+      },
+      __self: this
+    }, columns));
   }
 
 }
@@ -578,6 +623,13 @@ const Header = () => __jsx(react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_2___d
   __source: {
     fileName: _jsxFileName,
     lineNumber: 17
+  },
+  __self: undefined
+}, "Posts"), __jsx(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_3___default.a.Link, {
+  href: "/musictaste",
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 18
   },
   __self: undefined
 }, "Posts")));
@@ -2288,16 +2340,23 @@ class Posts extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
         lineNumber: 9
       },
       __self: this
-    }, __jsx(_Components_Post__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }, __jsx("h1", {
+      style: headerText,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 10
       },
       __self: this
-    }), __jsx(_Components_Form__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    }, "Posts"), __jsx(_Components_Post__WEBPACK_IMPORTED_MODULE_4__["default"], {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 11
+      },
+      __self: this
+    }), __jsx(_Components_Form__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 12
       },
       __self: this
     }));
@@ -2305,6 +2364,10 @@ class Posts extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
 
 }
 
+const headerText = {
+  textAlign: "center",
+  padding: "10px"
+};
 /* harmony default export */ __webpack_exports__["default"] = (Posts);
 
 /***/ }),
@@ -2431,6 +2494,28 @@ module.exports = require("react-bootstrap/Button");
 
 /***/ }),
 
+/***/ "react-bootstrap/Col":
+/*!**************************************!*\
+  !*** external "react-bootstrap/Col" ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-bootstrap/Col");
+
+/***/ }),
+
+/***/ "react-bootstrap/Container":
+/*!********************************************!*\
+  !*** external "react-bootstrap/Container" ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-bootstrap/Container");
+
+/***/ }),
+
 /***/ "react-bootstrap/Form":
 /*!***************************************!*\
   !*** external "react-bootstrap/Form" ***!
@@ -2472,6 +2557,17 @@ module.exports = require("react-bootstrap/Nav");
 /***/ (function(module, exports) {
 
 module.exports = require("react-bootstrap/Navbar");
+
+/***/ }),
+
+/***/ "react-bootstrap/Row":
+/*!**************************************!*\
+  !*** external "react-bootstrap/Row" ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-bootstrap/Row");
 
 /***/ }),
 

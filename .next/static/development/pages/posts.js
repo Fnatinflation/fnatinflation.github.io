@@ -277,6 +277,13 @@ var Header = function Header() {
       lineNumber: 17
     },
     __self: this
+  }, "Posts"), __jsx(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_3__["default"].Link, {
+    href: "/musictaste",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18
+    },
+    __self: this
   }, "Posts")));
 };
 
@@ -361,6 +368,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! firebase */ "./node_modules/firebase/dist/index.cjs.js");
 /* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(firebase__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-bootstrap/Container */ "./node_modules/react-bootstrap/esm/Container.js");
+/* harmony import */ var react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-bootstrap/Row */ "./node_modules/react-bootstrap/esm/Row.js");
+/* harmony import */ var react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-bootstrap/Col */ "./node_modules/react-bootstrap/esm/Col.js");
 
 
 
@@ -372,10 +382,14 @@ var _jsxFileName = "C:\\Users\\Mathias\\IdeaProjects\\fnatinflation.github.io\\C
 var __jsx = react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement;
 
 
+
+
+
 var postStyle = {
   margin: 20,
   padding: 20,
-  border: '1px solid #DDD'
+  border: '3px solid #DDD',
+  height: "500px"
 };
 
 var PostList =
@@ -427,42 +441,70 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return __jsx("div", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 35
-        },
-        __self: this
-      }, this.state.posts.map(function (v, i) {
-        return __jsx("div", {
+      var columns = [];
+      this.state.posts.map(function (v, i) {
+        columns.push(__jsx(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_11__["default"], {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 44
+          },
+          __self: this
+        }, __jsx("div", {
           key: i,
           id: "postDiv",
           style: postStyle,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 38
+            lineNumber: 45
           },
           __self: this
         }, __jsx("h1", {
+          style: {
+            textAlign: "center"
+          },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 39
+            lineNumber: 46
           },
           __self: this
         }, v.topic), __jsx("br", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 42
+            lineNumber: 49
           },
           __self: this
         }), __jsx("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 43
+            lineNumber: 50
           },
           __self: this
-        }, v.subject));
-      }));
+        }, v.subject))));
+
+        if ((i + 1) % 3 === 0) {
+          columns.push(__jsx("div", {
+            className: "w-100",
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 58
+            },
+            __self: this
+          }));
+        }
+      });
+      return __jsx("di", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 62
+        },
+        __self: this
+      }, __jsx(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_10__["default"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 63
+        },
+        __self: this
+      }, columns));
     }
   }]);
 
@@ -545,6 +587,13 @@ var Header = function Header() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 17
+    },
+    __self: this
+  }, "Posts"), __jsx(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_3__["default"].Link, {
+    href: "/musictaste",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18
     },
     __self: this
   }, "Posts")));
@@ -63157,6 +63206,52 @@ Collapse.defaultProps = defaultProps;
 
 /***/ }),
 
+/***/ "./node_modules/react-bootstrap/esm/Container.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/react-bootstrap/esm/Container.js ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutPropertiesLoose */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _ThemeProvider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ThemeProvider */ "./node_modules/react-bootstrap/esm/ThemeProvider.js");
+
+
+
+
+
+var defaultProps = {
+  fluid: false
+};
+var Container = react__WEBPACK_IMPORTED_MODULE_3___default.a.forwardRef( // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+function (_ref, ref) {
+  var bsPrefix = _ref.bsPrefix,
+      fluid = _ref.fluid,
+      _ref$as = _ref.as,
+      Component = _ref$as === void 0 ? 'div' : _ref$as,
+      className = _ref.className,
+      props = Object(_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__["default"])(_ref, ["bsPrefix", "fluid", "as", "className"]);
+
+  var prefix = Object(_ThemeProvider__WEBPACK_IMPORTED_MODULE_4__["useBootstrapPrefix"])(bsPrefix, 'container');
+  return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(Component, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    ref: ref
+  }, props, {
+    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()(className, fluid ? prefix + "-fluid" : prefix)
+  }));
+});
+Container.displayName = 'Container';
+Container.defaultProps = defaultProps;
+/* harmony default export */ __webpack_exports__["default"] = (Container);
+
+/***/ }),
+
 /***/ "./node_modules/react-bootstrap/esm/Feedback.js":
 /*!******************************************************!*\
   !*** ./node_modules/react-bootstrap/esm/Feedback.js ***!
@@ -64201,6 +64296,50 @@ var NavbarToggle = react__WEBPACK_IMPORTED_MODULE_3___default.a.forwardRef(funct
 NavbarToggle.displayName = 'NavbarToggle';
 NavbarToggle.defaultProps = defaultProps;
 /* harmony default export */ __webpack_exports__["default"] = (NavbarToggle);
+
+/***/ }),
+
+/***/ "./node_modules/react-bootstrap/esm/Row.js":
+/*!*************************************************!*\
+  !*** ./node_modules/react-bootstrap/esm/Row.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutPropertiesLoose */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _ThemeProvider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ThemeProvider */ "./node_modules/react-bootstrap/esm/ThemeProvider.js");
+
+
+
+
+
+var defaultProps = {
+  noGutters: false
+};
+var Row = react__WEBPACK_IMPORTED_MODULE_3___default.a.forwardRef(function (props, ref) {
+  var bsPrefix = props.bsPrefix,
+      noGutters = props.noGutters,
+      _props$as = props.as,
+      Component = _props$as === void 0 ? 'div' : _props$as,
+      className = props.className,
+      otherProps = Object(_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__["default"])(props, ["bsPrefix", "noGutters", "as", "className"]);
+
+  var decoratedBsPrefix = Object(_ThemeProvider__WEBPACK_IMPORTED_MODULE_4__["useBootstrapPrefix"])(bsPrefix, 'row');
+  return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(Component, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    ref: ref
+  }, otherProps, {
+    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()(className, decoratedBsPrefix, noGutters && 'no-gutters')
+  }));
+});
+Row.defaultProps = defaultProps;
+/* harmony default export */ __webpack_exports__["default"] = (Row);
 
 /***/ }),
 
@@ -67962,16 +68101,23 @@ function (_React$Component) {
           lineNumber: 9
         },
         __self: this
-      }, __jsx(_Components_Post__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      }, __jsx("h1", {
+        style: headerText,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 10
         },
         __self: this
-      }), __jsx(_Components_Form__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      }, "Posts"), __jsx(_Components_Post__WEBPACK_IMPORTED_MODULE_9__["default"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 11
+        },
+        __self: this
+      }), __jsx(_Components_Form__WEBPACK_IMPORTED_MODULE_8__["default"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 12
         },
         __self: this
       }));
@@ -67981,11 +68127,15 @@ function (_React$Component) {
   return Posts;
 }(react__WEBPACK_IMPORTED_MODULE_5___default.a.Component);
 
+var headerText = {
+  textAlign: "center",
+  padding: "10px"
+};
 /* harmony default export */ __webpack_exports__["default"] = (Posts);
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!********************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fposts&absolutePagePath=C%3A%5CUsers%5CMathias%5CIdeaProjects%5Cfnatinflation.github.io%5Cpages%5Cposts.js ***!
   \********************************************************************************************************************************************************/
@@ -68008,5 +68158,5 @@ module.exports = dll_5f137288facb1107b491;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]);
+},[[4,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=posts.js.map

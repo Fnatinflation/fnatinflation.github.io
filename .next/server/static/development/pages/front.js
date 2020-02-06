@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -169,6 +169,13 @@ const Header = () => __jsx(react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_2___d
   __source: {
     fileName: _jsxFileName,
     lineNumber: 17
+  },
+  __self: undefined
+}, "Posts"), __jsx(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_3___default.a.Link, {
+  href: "/musictaste",
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 18
   },
   __self: undefined
 }, "Posts")));
@@ -1917,34 +1924,125 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Components/Layout */ "./Components/Layout.js");
 /* harmony import */ var react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-bootstrap/Button */ "react-bootstrap/Button");
 /* harmony import */ var react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var spotify_web_api_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! spotify-web-api-js */ "spotify-web-api-js");
+/* harmony import */ var spotify_web_api_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(spotify_web_api_js__WEBPACK_IMPORTED_MODULE_3__);
 var _jsxFileName = "C:\\Users\\Mathias\\IdeaProjects\\fnatinflation.github.io\\pages\\front.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+const spotifyWebApi = new spotify_web_api_js__WEBPACK_IMPORTED_MODULE_3___default.a();
+
 class Front extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+  constructor() {
+    super();
+    this.state = {
+      nowPlaying: {
+        name: 'Not checked',
+        image: ''
+      }
+    };
+  }
+
+  componentDidMount() {
+    const params = this.getHashParams();
+    this.setState({
+      loggedIn: params.access_token ? true : false
+    });
+
+    if (params.access_token) {
+      spotifyWebApi.setAccessToken(params.access_token);
+    }
+  }
+
+  getHashParams() {
+    var hashParams = {};
+    var e,
+        r = /([^&;=]+)=?([^&;]*)/g,
+        q = window.location.hash.substring(1);
+
+    while (e = r.exec(q)) {
+      hashParams[e[1]] = decodeURIComponent(e[2]);
+    }
+
+    return hashParams;
+  }
+
+  getNowPlaying() {
+    spotifyWebApi.getMyCurrentPlaybackState().then(response => {
+      this.setState({
+        nowPlaying: {
+          name: response.item.name,
+          image: response.item.album.images[0].url
+        }
+      });
+    });
+  }
+
   render() {
     return __jsx(_Components_Layout__WEBPACK_IMPORTED_MODULE_1__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 8
+        lineNumber: 48
       },
       __self: this
     }, __jsx("body", {
       style: frontStyle,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 9
+        lineNumber: 49
       },
       __self: this
     }, __jsx("h1", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 12
+        lineNumber: 50
       },
       __self: this
-    }, "K\xE6mpe legende")));
+    }, "K\xE6mpe legende"), __jsx("a", {
+      href: "http://localhost:8888",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 51
+      },
+      __self: this
+    }, __jsx("button", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 52
+      },
+      __self: this
+    }, "Login with spotify")), __jsx("div", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 54
+      },
+      __self: this
+    }, " Now Playing: ", this.state.nowPlaying.name), __jsx("div", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 55
+      },
+      __self: this
+    }, __jsx("img", {
+      src: this.state.nowPlaying.image,
+      style: {
+        width: 100
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 56
+      },
+      __self: this
+    })), __jsx("button", {
+      onClick: () => this.getNowPlaying(),
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 58
+      },
+      __self: this
+    }, "Check Now Playing")));
   }
 
 }
@@ -1959,7 +2057,7 @@ const frontStyle = {
 
 /***/ }),
 
-/***/ 6:
+/***/ 4:
 /*!******************************!*\
   !*** multi ./pages/front.js ***!
   \******************************/
@@ -2122,6 +2220,17 @@ module.exports = require("react-bootstrap/Navbar");
 /***/ (function(module, exports) {
 
 module.exports = require("react-is");
+
+/***/ }),
+
+/***/ "spotify-web-api-js":
+/*!*************************************!*\
+  !*** external "spotify-web-api-js" ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("spotify-web-api-js");
 
 /***/ }),
 
