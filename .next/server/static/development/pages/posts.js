@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -342,13 +342,6 @@ const Header = () => __jsx(react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_2___d
   __source: {
     fileName: _jsxFileName,
     lineNumber: 17
-  },
-  __self: undefined
-}, "Posts"), __jsx(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_3___default.a.Link, {
-  href: "/musictaste",
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 18
   },
   __self: undefined
 }, "Posts")));
@@ -717,13 +710,6 @@ const Header = () => __jsx(react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_2___d
   __source: {
     fileName: _jsxFileName,
     lineNumber: 17
-  },
-  __self: undefined
-}, "Posts"), __jsx(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_3___default.a.Link, {
-  href: "/musictaste",
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 18
   },
   __self: undefined
 }, "Posts")));
@@ -2466,7 +2452,7 @@ const headerText = {
 
 /***/ }),
 
-/***/ 5:
+/***/ 4:
 /*!******************************!*\
   !*** multi ./pages/posts.js ***!
   \******************************/

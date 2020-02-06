@@ -9,7 +9,7 @@ class Index extends React.Component {
             <div>
 
                 <div class="hero-image" >
-                    <img style={heroImage} src="https://blog.tmcnet.com/blog/rich-tehrani/wp-content/uploads/2019/12/Technology-AdobeStock_294390642-scaled.jpg"></img>
+                    <img style={heroImage} src="https://st3.depositphotos.com/1670531/18062/i/1600/depositphotos_180623552-stock-photo-hero-header-background-copy-space.jpg"></img>
                     <div class="hero-text" style={heroText}>
                         <h1>Velkommen</h1>
                         <p>Mød en legende</p>
@@ -42,7 +42,7 @@ const heroText = {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    color: "white",
+    color: "black",
     fontSize: "30px",
     zIndex: "2"
 

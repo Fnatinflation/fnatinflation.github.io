@@ -277,13 +277,6 @@ var Header = function Header() {
       lineNumber: 17
     },
     __self: this
-  }, "Posts"), __jsx(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_3__["default"].Link, {
-    href: "/musictaste",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 18
-    },
-    __self: this
   }, "Posts")));
 };
 
@@ -683,13 +676,6 @@ var Header = function Header() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 17
-    },
-    __self: this
-  }, "Posts"), __jsx(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_3__["default"].Link, {
-    href: "/musictaste",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 18
     },
     __self: this
   }, "Posts")));
@@ -68231,7 +68217,7 @@ var headerText = {
 
 /***/ }),
 
-/***/ 3:
+/***/ 1:
 /*!********************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fposts&absolutePagePath=C%3A%5CUsers%5CMathias%5CIdeaProjects%5Cfnatinflation.github.io%5Cpages%5Cposts.js ***!
   \********************************************************************************************************************************************************/
@@ -68254,5 +68240,5 @@ module.exports = dll_5f137288facb1107b491;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=posts.js.map

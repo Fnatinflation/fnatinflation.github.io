@@ -15,8 +15,6 @@ const Header = () => (
     <Nav className="mr-auto">
       <Nav.Link href="/front">Home</Nav.Link>
       <Nav.Link href="/posts">Posts</Nav.Link>
-      <Nav.Link href="/musictaste">Posts</Nav.Link>
-
     </Nav>
   </Navbar>
 );
