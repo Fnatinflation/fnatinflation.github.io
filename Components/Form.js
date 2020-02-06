@@ -47,7 +47,7 @@ class Form extends React.Component {
                     </label>
                     <br></br>
                     <label>
-                 <input type="text" placeholder="Subhect" name="subject" value={subject} ref={el => this.element = el} onChange={this.updateInput} />
+                 <input type="text" placeholder="Subject" name="subject" value={subject} ref={el => this.element = el} onChange={this.updateInput} />
                     </label>
                     <input type="submit" value="Submit" />
                 </form>
