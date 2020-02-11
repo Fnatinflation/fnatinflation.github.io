@@ -19,7 +19,8 @@ class Form extends React.Component {
     addPost = e => {
         e.preventDefault();
         const db = firebase.firestore();
-        const userRef = db.collection('posts').add({
+        console.log(this.state.topic)
+        const userRef = db.collection('posts').doc(this.state.topic).set({
             topic: this.state.topic,
             subject: this.state.subject
         }).then(()=>window.location.reload())
