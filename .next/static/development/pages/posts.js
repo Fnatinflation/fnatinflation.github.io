@@ -126,7 +126,7 @@ function (_React$Component) {
           lineNumber: 43
         },
         __self: this
-      }, __jsx("p", {
+      }, __jsx("h1", {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 44
@@ -145,8 +145,9 @@ function (_React$Component) {
           lineNumber: 46
         },
         __self: this
-      }, __jsx("input", {
-        type: "text",
+      }, __jsx("textarea", {
+        cols: "100",
+        rows: "1",
         placeholder: "Topic",
         name: "topic",
         value: topic,
@@ -171,7 +172,9 @@ function (_React$Component) {
           lineNumber: 50
         },
         __self: this
-      }, __jsx("input", {
+      }, __jsx("textarea", {
+        cols: "100",
+        rows: "10",
         type: "text",
         placeholder: "Subject",
         name: "subject",
@@ -185,12 +188,18 @@ function (_React$Component) {
           lineNumber: 51
         },
         __self: this
-      })), __jsx("input", {
+      })), __jsx("br", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 53
+        },
+        __self: this
+      }), __jsx("input", {
         type: "submit",
         value: "Submit",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 53
+          lineNumber: 55
         },
         __self: this
       })));
@@ -234,6 +243,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 var Header = function Header() {
   return __jsx(react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    fixed: "top",
     bg: "dark",
     variant: "dark",
     __source: {
@@ -301,31 +311,44 @@ var _jsxFileName = "C:\\Users\\Mathias\\IdeaProjects\\fnatinflation.github.io\\C
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
-var layoutStyle = {
-  backgroundColor: "#F2F2F2"
-};
 
 var Layout = function Layout(props) {
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 6
+      lineNumber: 4
     },
     __self: this
   }, __jsx(_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7
+      lineNumber: 5
     },
     __self: this
   }), __jsx("body", {
-    style: layoutStyle,
+    style: {
+      backgroundColor: "#D9D9D9",
+      paddingTop: "20px"
+    },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8
+      lineNumber: 6
     },
     __self: this
-  }, props.children), __jsx("link", {
+  }, __jsx("div", {
+    style: {
+      margin: "0 auto",
+      width: "50%",
+      height: "100%",
+      border: '1px solid #DDD',
+      backgroundColor: "#F2F2F2"
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7
+    },
+    __self: this
+  }, props.children)), __jsx("link", {
     rel: "stylesheet",
     href: "https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css",
     integrity: "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T",
@@ -519,8 +542,7 @@ function (_React$Component) {
             height: "50%",
             width: "100%",
             textAlign: "left",
-            display: "inline-block",
-            backgroundColor: "#D9D9D9"
+            display: "inline-block"
           },
           __source: {
             fileName: _jsxFileName,
@@ -529,28 +551,29 @@ function (_React$Component) {
           __self: this
         }, __jsx("h1", {
           style: {
-            textAlign: "center"
+            textAlign: "center",
+            fontSize: "18px"
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 66
+            lineNumber: 65
           },
           __self: this
         }, v.topic), __jsx("div", {
           style: {
             overflow: "hidden",
             textOverflow: "ellipsis",
-            height: "50%"
+            height: "80%"
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 69
+            lineNumber: 68
           },
           __self: this
         }, __jsx("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 70
+            lineNumber: 69
           },
           __self: this
         }, v.subject)))))));
@@ -561,7 +584,7 @@ function (_React$Component) {
             className: "w-100",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 83
+              lineNumber: 82
             },
             __self: this
           }));
@@ -574,7 +597,7 @@ function (_React$Component) {
             columns.push(__jsx(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_11__["default"], {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 89
+                lineNumber: 88
               },
               __self: this
             }, __jsx("div", {
@@ -585,7 +608,7 @@ function (_React$Component) {
               }),
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 90
+                lineNumber: 89
               },
               __self: this
             })));
@@ -595,7 +618,7 @@ function (_React$Component) {
             columns.push(__jsx(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_11__["default"], {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 98
+                lineNumber: 97
               },
               __self: this
             }, __jsx("div", {
@@ -606,7 +629,7 @@ function (_React$Component) {
               }),
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 99
+                lineNumber: 98
               },
               __self: this
             })));
@@ -616,13 +639,13 @@ function (_React$Component) {
       return __jsx("di", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 108
+          lineNumber: 107
         },
         __self: this
       }, __jsx(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_10__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 109
+          lineNumber: 108
         },
         __self: this
       }, columns));
@@ -666,6 +689,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 var Header = function Header() {
   return __jsx(react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    fixed: "top",
     bg: "dark",
     variant: "dark",
     __source: {
@@ -68197,13 +68221,13 @@ function (_React$Component) {
 
 var headerText = {
   textAlign: "center",
-  padding: "10px"
+  padding: "20px"
 };
 /* harmony default export */ __webpack_exports__["default"] = (Posts);
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!********************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fposts&absolutePagePath=C%3A%5CUsers%5CMathias%5CIdeaProjects%5Cfnatinflation.github.io%5Cpages%5Cposts.js ***!
   \********************************************************************************************************************************************************/
@@ -68226,5 +68250,5 @@ module.exports = dll_5f137288facb1107b491;
 
 /***/ })
 
-},[[4,"static/runtime/webpack.js"]]]);
+},[[3,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=posts.js.map

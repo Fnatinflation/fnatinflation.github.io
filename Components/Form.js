@@ -41,15 +41,17 @@ class Form extends React.Component {
         const { topic, subject } = this.state
         return (
             <div style={formStyle}>
-                <p>Add post</p>
+                <h1>Add post</h1>
                 <form onSubmit={this.addPost} >
                     <label>
-                 <input type="text" placeholder="Topic" name="topic" value={topic} ref={el => this.element = el} onChange={this.updateInput} />
+                 <textarea cols="100" rows="1" placeholder="Topic" name="topic" value={topic} ref={el => this.element = el} onChange={this.updateInput} />
                     </label>
                     <br></br>
                     <label>
-                 <input type="text" placeholder="Subject" name="subject" value={subject} ref={el => this.element = el} onChange={this.updateInput} />
+                 <textarea cols="100" rows="10" type="text" placeholder="Subject" name="subject" value={subject} ref={el => this.element = el} onChange={this.updateInput} />
                     </label>
+                    <br></br>
+
                     <input type="submit" value="Submit" />
                 </form>
             </div>

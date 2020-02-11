@@ -9,8 +9,8 @@ import Button from 'react-bootstrap/Button';
 
 
 const Header = () => (
-  <Navbar bg="dark" variant="dark">
-    <Navbar.Brand href="/">
+  <Navbar fixed="top" bg="dark" variant="dark">
+    <Navbar.Brand  href="/">
       <img width="30" height="35" src="https://www.agf.dk/frontend/images/logo.png"></img></Navbar.Brand>
     <Nav className="mr-auto">
       <Nav.Link href="/front">Home</Nav.Link>

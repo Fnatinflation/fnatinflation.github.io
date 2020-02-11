@@ -1,12 +1,12 @@
 import Header from './Header';
-const layoutStyle = {
-  backgroundColor:"#F2F2F2"
-}
+
 const Layout = props => (
   <div>
     <Header />
-    <body style={layoutStyle}>
-      {props.children}
+    <body style={{backgroundColor:"#D9D9D9",paddingTop: "20px"}}>
+      <div style={{ margin: "0 auto",width: "50%",height:"100%", border: '1px solid #DDD',backgroundColor:"#F2F2F2"}}>
+        {props.children}
+      </div>
     </body>
     <link
       rel="stylesheet"

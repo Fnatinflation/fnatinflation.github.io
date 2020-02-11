@@ -5,33 +5,38 @@ import firestore from "./Firestore";
 class PostComponent extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            topic: '',
+            subject: ''
+        }
     }
 
     componentDidMount() {
+        console.log(this.props.title)
         firebase
             .firestore()
             .collection("posts")
+            .doc(String(this.props.title))
             .get()
-            .then(querySnapshot => {
-                const posts = [];
-
-                querySnapshot.forEach(function (doc) {
-                    posts.push({
-                        topic: doc.data().topic,
-                        subject: doc.data().subject,
-                    });
-                });
-
-                this.setState({ posts });
-            })
+            .then((doc) => {
+                this.setState({
+                    topic: doc.data().topic,
+                    subject: doc.data().subject
+                })
+            }
+            )
             .catch(function (error) {
                 console.log("Error getting documents: ", error);
             });
+        console.log(this.state.topic + 'hej')
     }
 
     render() {
         return (
-            <h1>{this.props.title}</h1>
+            <div style={{ padding: "20px" }}>
+                <h1 style={{ textAlign: "center" }}>{this.state.topic}</h1>
+                <p>{this.state.subject}</p>
+            </div>
         );
     }
 }

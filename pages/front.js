@@ -1,4 +1,3 @@
-
 import Layout from '../Components/Layout';
 import Button from 'react-bootstrap/Button';
 import Spotify from 'spotify-web-api-js'
@@ -46,7 +45,7 @@ class Front extends React.Component {
     render() {
         return (
             <Layout>
-                <body style={frontStyle}>
+                <div style={frontStyle}>
                     <h1>Kæmpe legende</h1>
                     <a href='http://localhost:8888'>
                         <button>Login with spotify</button>
@@ -58,16 +57,16 @@ class Front extends React.Component {
                         <button onClick={() => this.getNowPlaying()}>
                             Check Now Playing
                         </button>
-                </body>
+                </div>
             </Layout>
 
         );
     }
 }
 const frontStyle = {
-    margin: 20,
     padding: 20,
-    backgroundColor: "#F2F2F2",
+    height:"95vh",
+    overflow:"hidden",
     textAlign: "center"
 }
 export default Front;

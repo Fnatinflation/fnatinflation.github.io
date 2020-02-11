@@ -61,12 +61,11 @@ class PostList extends React.Component {
                                 width: "100%",
                                 textAlign: "left",
                                 display: "inline-block",
-                                backgroundColor: "#D9D9D9"
                             }}>
-                                <h1 style={{ textAlign: "center" }}>
+                                <h1 style={{ textAlign: "center",fontSize:"18px" }}>
                                     {v.topic}
                                 </h1>
-                                <div style={{ overflow: "hidden", textOverflow: "ellipsis", height: "50%" }}>
+                                <div style={{ overflow: "hidden", textOverflow: "ellipsis", height: "80%" }}>
                                     <p>
                                         {v.subject}
                                     </p>
