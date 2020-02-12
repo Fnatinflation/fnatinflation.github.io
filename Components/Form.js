@@ -44,11 +44,11 @@ class Form extends React.Component {
                 <h1>Add post</h1>
                 <form onSubmit={this.addPost} >
                     <label>
-                 <textarea cols="100" rows="1" placeholder="Topic" name="topic" value={topic} ref={el => this.element = el} onChange={this.updateInput} />
+                 <textarea style={{width:"100%"}} cols="100" rows="1" placeholder="Topic" name="topic" value={topic} ref={el => this.element = el} onChange={this.updateInput} />
                     </label>
                     <br></br>
                     <label>
-                 <textarea cols="100" rows="10" type="text" placeholder="Subject" name="subject" value={subject} ref={el => this.element = el} onChange={this.updateInput} />
+                 <textarea style={{width:"100%"}} cols="100" rows="10" type="text" placeholder="Subject" name="subject" value={subject} ref={el => this.element = el} onChange={this.updateInput} />
                     </label>
                     <br></br>
 
