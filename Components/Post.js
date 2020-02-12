@@ -11,12 +11,28 @@ const PostLink = props => (
 );
 
 const postStyle = {
-    margin: 20,
-    padding: 0,
+    flex: "0 0 32%",
     height: "300px",
-    wordWrap: "break-word"
-
+    wordWrap: "break-word",
+    paddingBottom: "5px"
 }
+const container = {
+    display: "flex",          
+    flexWrap: "wrap",
+    padding:"5px",
+    justifyContent: "space-around"
+}
+const textStyle = {
+    padding: "20px",
+    border: '3px solid #DDD',
+    borderColor: "#737373",
+    borderTop: "none",
+    height: "60%",
+    width: "100%",
+    textAlign: "left",
+    display: "inline-block",
+}
+
 class PostList extends React.Component {
     state = { posts: [] };
 
@@ -46,62 +62,35 @@ class PostList extends React.Component {
         let columns = [];
         this.state.posts.map((v, i) => {
             columns.push(
-                <Col style={{cursor:"pointer"}}>
-                    <Link href="/posts/[id]" as={`/posts/${v.topic}`}>
-                        <div key={i} id="postDiv" style={postStyle}>
-                            <div style={{  height: "40%", border: '3px solid #DDD', borderColor: "#737373", padding: "0px" }}>
-                                <img style={{ marginLeft: "auto", marginRight: "auto", width: "100%", height: "100%" }} src='https://bt.bmcdn.dk/media/cache/resolve/image_1240/image/133/1332480/22994689-.jpg'></img>
-                            </div>
-                            <div style={{
-                                padding: "20px",
-                                border: '3px solid #DDD',
-                                borderColor: "#737373",
-                                borderTop: "none",
-                                height: "60%",
-                                width: "100%",
-                                textAlign: "left",
-                                display: "inline-block",
-                            }}>
-                                <h1 style={{ textAlign: "center",fontSize:"18px" }}>
-                                    {v.topic}
-                                </h1>
-                                <div style={{ overflow: "hidden", textOverflow: "ellipsis", height: "80%" }}>
-                                    <p>
-                                        {v.subject}
-                                    </p>
-                                </div>
-
+                <Link href="/posts/[id]" as={`/posts/${v.topic}`}>
+                    <div key={i} id="postDiv" style={postStyle}>
+                        <div style={{ height: "40%", border: '3px solid #DDD', borderColor: "#737373", padding: "0px" }}>
+                            <img style={{ marginLeft: "auto", marginRight: "auto", width: "100%", height: "100%" }} src='https://bt.bmcdn.dk/media/cache/resolve/image_1240/image/133/1332480/22994689-.jpg'></img>
+                        </div>
+                        <div style={textStyle}>
+                            <h1 style={{ textAlign: "center", fontSize: "18px" }}>
+                                {v.topic}
+                            </h1>
+                            <div style={{ overflow: "hidden", textOverflow: "ellipsis", height: "80%" }}>
+                                <p>
+                                    {v.subject}
+                                </p>
                             </div>
                         </div>
-                    </Link>
-                </Col>
+                    </div>
+                </Link>
             )
-
-            if ((i + 1) % 3 === 0) {
-                columns.push(<div className="w-100"></div>)
-            }
-            if (this.state.posts.length === columns.length) {
-                if (columns.length % 3 === 1) {
-                    columns.push(
-                        <Col>
-                            <div key={i} id="postDiv" style={postStyle, { visibility: "hidden" }}></div>
-                        </Col>
-                    )
-                }
-                if (columns.length % 3 === 2) {
-                    columns.push(
-                        <Col>
-                            <div key={i} id="postDiv" style={postStyle, { visibility: "hidden" }}></div>
-                        </Col>
-                    )
-                }
-            }
         })
+        {/* Fill the rest of the row with empty space*/}
+        if(columns.length % 3 === 1) {
+            columns.push(<div style={postStyle}></div>)
+            columns.push(<div style={postStyle}></div>)
+        } else if (columns.length % 3 ==2) {
+            columns.push(<div style={postStyle}></div>)
+        }
         return (
-            <div>
-                <Row>
-                    {columns}
-                </Row>
+            <div style={container}>
+                {columns}
             </div>
         );
     }
