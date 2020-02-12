@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import Layout from '../../Components/Layout';
-import PostComponent from '../../Components/PostComponent';
+import PostComponent from './PostComponent';
 
 
 

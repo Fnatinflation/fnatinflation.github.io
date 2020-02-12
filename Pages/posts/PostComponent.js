@@ -1,5 +1,5 @@
 import firebase from 'firebase';
-import firestore from "./Firestore";
+import firestore from "../../Components/Firestore";
 
 
 class PostComponent extends React.Component {
@@ -28,7 +28,6 @@ class PostComponent extends React.Component {
             .catch(function (error) {
                 console.log("Error getting documents: ", error);
             });
-        console.log(this.state.topic + 'hej')
     }
 
     render() {

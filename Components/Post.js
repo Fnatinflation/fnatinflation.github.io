@@ -13,7 +13,7 @@ const PostLink = props => (
 const postStyle = {
     margin: 20,
     padding: 0,
-    height: "500px",
+    height: "300px",
     wordWrap: "break-word"
 
 }
@@ -49,7 +49,7 @@ class PostList extends React.Component {
                 <Col style={{cursor:"pointer"}}>
                     <Link href="/posts/[id]" as={`/posts/${v.topic}`}>
                         <div key={i} id="postDiv" style={postStyle}>
-                            <div style={{  height: "50%", border: '3px solid #DDD', borderColor: "#737373", padding: "0px" }}>
+                            <div style={{  height: "40%", border: '3px solid #DDD', borderColor: "#737373", padding: "0px" }}>
                                 <img style={{ marginLeft: "auto", marginRight: "auto", width: "100%", height: "100%" }} src='https://bt.bmcdn.dk/media/cache/resolve/image_1240/image/133/1332480/22994689-.jpg'></img>
                             </div>
                             <div style={{
@@ -57,7 +57,7 @@ class PostList extends React.Component {
                                 border: '3px solid #DDD',
                                 borderColor: "#737373",
                                 borderTop: "none",
-                                height: "50%",
+                                height: "60%",
                                 width: "100%",
                                 textAlign: "left",
                                 display: "inline-block",
@@ -78,37 +78,31 @@ class PostList extends React.Component {
             )
 
             if ((i + 1) % 3 === 0) {
-                console.log("række")
                 columns.push(<div className="w-100"></div>)
             }
             if (this.state.posts.length === columns.length) {
-                console.log("hej")
                 if (columns.length % 3 === 1) {
                     columns.push(
                         <Col>
-                            <div key={i} id="postDiv" style={postStyle, { visibility: "hidden" }}>
-
-                            </div>
+                            <div key={i} id="postDiv" style={postStyle, { visibility: "hidden" }}></div>
                         </Col>
                     )
                 }
                 if (columns.length % 3 === 2) {
                     columns.push(
                         <Col>
-                            <div key={i} id="postDiv" style={postStyle, { visibility: "hidden" }}>
-
-                            </div>
+                            <div key={i} id="postDiv" style={postStyle, { visibility: "hidden" }}></div>
                         </Col>
                     )
                 }
             }
         })
         return (
-            <di>
+            <div>
                 <Row>
                     {columns}
                 </Row>
-            </di>
+            </div>
         );
     }
 }
