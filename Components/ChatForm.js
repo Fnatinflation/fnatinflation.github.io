@@ -30,9 +30,9 @@ class ChatForm extends React.Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.addPost}>
-                    <input type="text" placeholder="message" name="message" value={this.state.message} ref={el => this.element = el} onChange={this.updateInput} />
-                    <input type="submit" value="Submit" />
+                <form style={{display:"inline-flex",width:"100%"}} onSubmit={this.addPost}>
+                    <textarea style={{width:"80%"}}rows="1" type="text" placeholder="message" name="message" value={this.state.message} ref={el => this.element = el} onChange={this.updateInput} />
+                    <input style={{width:"20%"}} type="submit" value="Submit" />
                 </form>
             </div>
         )

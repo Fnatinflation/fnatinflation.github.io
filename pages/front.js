@@ -17,7 +17,6 @@ class Front extends React.Component {
                     <ChatMessages />
                 </div>
             </Layout>
-
         );
     }
 }
