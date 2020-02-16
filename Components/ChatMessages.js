@@ -44,16 +44,14 @@ class ChatMessages extends React.Component {
             .limit(messagesShown)
             .onSnapshot(snapshot => {
                 snapshot.docChanges().forEach(change => {
+                    console.log('Read')
                     if (change.type === AppString.DOC_ADDED) {
                         messages.push({
                             message: change.doc.data().message,
                         });
                     }
                 })
-                if(this.refreshed===false){
-                    this.refreshed===true
-                    this.componentDidMount()
-                }
+
                 this.setState({ messages, isLoading: false });
             },
                 err => {
@@ -69,7 +67,7 @@ class ChatMessages extends React.Component {
        
         this.state.messages.map((v, i) => {
             receivedMessages.push(
-                <div style={{ paddingBottom: "10px" }}>
+                <div key={i} style={{ paddingBottom: "10px" }}>
                     <li style={{ padding: "10px", border: '1px solid #DDD' }}>
                         {v.message}
                     </li>

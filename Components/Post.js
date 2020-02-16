@@ -3,6 +3,8 @@ import firebase from 'firebase'
 import Link from 'next/link';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import '@firebase/storage';
+
 
 const PostLink = props => (
     <Link href="/posts/[id]" as={`/posts/${props.id}`}>
@@ -17,9 +19,9 @@ const postStyle = {
     paddingBottom: "5px"
 }
 const container = {
-    display: "flex",          
+    display: "flex",
     flexWrap: "wrap",
-    padding:"5px",
+    padding: "5px",
     justifyContent: "space-around"
 }
 const textStyle = {
@@ -34,9 +36,11 @@ const textStyle = {
 }
 
 class PostList extends React.Component {
-    state = { posts: [] };
+    state = { posts: [], url: "", imageUrls: [] };
 
     componentDidMount() {
+        const storage = firebase.storage()
+
         firebase
             .firestore()
             .collection("posts")
@@ -52,20 +56,40 @@ class PostList extends React.Component {
                 });
 
                 this.setState({ posts });
+                const images = [];
+                console.log(this.state.posts.length)
+
+                for (var i = 0; i < this.state.posts.length; i++) {
+                    console.log(this.state.posts[i].topic)
+                    storage
+                        .ref("images")
+                        .child(this.state.posts[i].topic)
+                        .getDownloadURL()
+                        .then(url => {
+                            images.push({
+                                url: url
+                            });
+                            this.setState({ imageUrls: images })
+                        }
+                        );
+                }
             })
             .catch(function (error) {
                 console.log("Error getting documents: ", error);
             });
+
     }
 
     render() {
         let columns = [];
+
         this.state.posts.map((v, i) => {
+
             columns.push(
                 <Link href="/posts/[id]" as={`/posts/${v.topic}`}>
                     <div key={i} id="postDiv" style={postStyle}>
                         <div style={{ height: "40%", border: '3px solid #DDD', borderColor: "#737373", padding: "0px" }}>
-                            <img style={{ marginLeft: "auto", marginRight: "auto", width: "100%", height: "100%" }} src='https://bt.bmcdn.dk/media/cache/resolve/image_1240/image/133/1332480/22994689-.jpg'></img>
+                            <img style={{ marginLeft: "auto", marginRight: "auto", width: "100%", height: "100%" }} src={this.state.url}></img>
                         </div>
                         <div style={textStyle}>
                             <h1 style={{ textAlign: "center", fontSize: "18px" }}>
@@ -78,14 +102,14 @@ class PostList extends React.Component {
                             </div>
                         </div>
                     </div>
-                </Link>
+                </Link >
             )
         })
-        {/* Fill the rest of the row with empty space*/}
-        if(columns.length % 3 === 1) {
+        {/* Fill the rest of the row with empty space*/ }
+        if (columns.length % 3 === 1) {
             columns.push(<div style={postStyle}></div>)
             columns.push(<div style={postStyle}></div>)
-        } else if (columns.length % 3 ==2) {
+        } else if (columns.length % 3 == 2) {
             columns.push(<div style={postStyle}></div>)
         }
         return (

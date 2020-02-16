@@ -1,26 +1,19 @@
-import { urlObjectKeys } from "next/dist/next-server/lib/utils";
-import Button from 'react-bootstrap/Button';
-
 class Index extends React.Component {
-
 
     render() {
         return (
             <div>
-
-                <div class="hero-image" >
+                <div className="hero-image" >
                     <img style={heroImage} src="https://st3.depositphotos.com/1670531/18062/i/1600/depositphotos_180623552-stock-photo-hero-header-background-copy-space.jpg"></img>
-                    <div class="hero-text" style={heroText}>
+                    <div className="hero-text" style={heroText}>
                         <h1>Velkommen</h1>
                         <p>Mød en legende</p>
                         <a href="/front">
                             <button>Enter</button>
                         </a>
-
                     </div>
                 </div>
             </div>
-
         )
     }
 }
