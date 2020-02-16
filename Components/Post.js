@@ -52,27 +52,13 @@ class PostList extends React.Component {
                     posts.push({
                         topic: doc.data().topic,
                         subject: doc.data().subject,
+                        url: doc.data().url
                     });
                 });
 
                 this.setState({ posts });
-                const images = [];
                 console.log(this.state.posts.length)
 
-                for (var i = 0; i < this.state.posts.length; i++) {
-                    console.log(this.state.posts[i].topic)
-                    storage
-                        .ref("images")
-                        .child(this.state.posts[i].topic)
-                        .getDownloadURL()
-                        .then(url => {
-                            images.push({
-                                url: url
-                            });
-                            this.setState({ imageUrls: images })
-                        }
-                        );
-                }
             })
             .catch(function (error) {
                 console.log("Error getting documents: ", error);
@@ -82,14 +68,12 @@ class PostList extends React.Component {
 
     render() {
         let columns = [];
-
         this.state.posts.map((v, i) => {
-
             columns.push(
                 <Link href="/posts/[id]" as={`/posts/${v.topic}`}>
                     <div key={i} id="postDiv" style={postStyle}>
                         <div style={{ height: "40%", border: '3px solid #DDD', borderColor: "#737373", padding: "0px" }}>
-                            <img style={{ marginLeft: "auto", marginRight: "auto", width: "100%", height: "100%" }} src={this.state.url}></img>
+                            <img style={{ marginLeft: "auto", marginRight: "auto", width: "100%", height: "100%" }} src={v.url}></img>
                         </div>
                         <div style={textStyle}>
                             <h1 style={{ textAlign: "center", fontSize: "18px" }}>

@@ -22,7 +22,6 @@ class Front extends React.Component {
 }
 const frontStyle = {
     padding: 20,
-    height: "95vh",
     overflow: "hidden",
     textAlign: "center"
 }

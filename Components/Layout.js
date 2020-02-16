@@ -3,11 +3,11 @@ import Header from './Header';
 const Layout = props => (
   <div>
     <Header />
-    <div style={{backgroundColor:"#D9D9D9",paddingTop: "20px"}}>
-      <div style={{ margin: "0 auto",width: "50%",height:"100%", border: '1px solid #DDD',backgroundColor:"#F2F2F2"}}>
-        {props.children}
+      <div style={{ backgroundColor: "#D9D9D9", paddingTop: "40px" ,height:"100vh"}}>
+        <div style={{ margin: "0 auto", width: "50%", height: "100%", border: '1px solid #DDD', backgroundColor: "#F2F2F2" }}>
+          {props.children}
+        </div>
       </div>
-    </div>
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
