@@ -7,7 +7,8 @@ class PostComponent extends React.Component {
         super(props);
         this.state = {
             topic: '',
-            subject: ''
+            subject: '',
+            url: ''
         }
     }
 
@@ -21,7 +22,8 @@ class PostComponent extends React.Component {
             .then((doc) => {
                 this.setState({
                     topic: doc.data().topic,
-                    subject: doc.data().subject
+                    subject: doc.data().subject,
+                    url: doc.data().url
                 })
             }
             )
@@ -32,8 +34,9 @@ class PostComponent extends React.Component {
 
     render() {
         return (
-            <div style={{ padding: "20px" }}>
+            <div style={{ padding: "20px", textAlign:"center",width:"100%" }}>
                 <h1 style={{ textAlign: "center" }}>{this.state.topic}</h1>
+                <img style={{ width: "100%" }} src={this.state.url}></img>
                 <p>{this.state.subject}</p>
             </div>
         );
