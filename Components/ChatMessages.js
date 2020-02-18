@@ -40,7 +40,7 @@ class ChatMessages extends React.Component {
         this.removeListener = firebase
             .firestore()
             .collection("chatmessages")
-            .orderBy("timestamp","desc")
+            .orderBy("timestamp", "desc")
             .limit(messagesShown)
             .onSnapshot(snapshot => {
                 snapshot.docChanges().forEach(change => {
@@ -49,9 +49,11 @@ class ChatMessages extends React.Component {
                         messages.push({
                             message: change.doc.data().message,
                         });
+                        if (messages.length === 11) {
+                            this.componentDidMount()
+                        }
                     }
                 })
-
                 this.setState({ messages, isLoading: false });
             },
                 err => {
@@ -64,7 +66,7 @@ class ChatMessages extends React.Component {
     }
     render() {
         let receivedMessages = []
-       
+
         this.state.messages.map((v, i) => {
             receivedMessages.push(
                 <div key={i} style={{ paddingBottom: "10px" }}>

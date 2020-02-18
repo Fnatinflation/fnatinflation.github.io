@@ -34,10 +34,10 @@ class PostComponent extends React.Component {
 
     render() {
         return (
-            <div style={{ padding: "20px", textAlign:"center",width:"100%" }}>
+            <div style={{ padding: "20px",width:"100%",minHeight:"94vh" }}>
                 <h1 style={{ textAlign: "center" }}>{this.state.topic}</h1>
                 <img style={{ width: "100%" }} src={this.state.url}></img>
-                <p>{this.state.subject}</p>
+                <p style={{textAlign:"left"}}>{this.state.subject}</p>
             </div>
         );
     }

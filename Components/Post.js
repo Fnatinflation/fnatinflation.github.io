@@ -14,22 +14,19 @@ const PostLink = props => (
 
 const postStyle = {
     flex: "0 0 32%",
-    height: "300px",
+    height: "200px",
     wordWrap: "break-word",
-    paddingBottom: "5px"
+    padding:"10px"
 }
 const container = {
+    marginLeft:"10px",
+    marginRight:"10px",
     display: "flex",
     flexWrap: "wrap",
-    padding: "5px",
     justifyContent: "space-around"
 }
 const textStyle = {
-    padding: "20px",
-    border: '3px solid #DDD',
-    borderColor: "#737373",
-    borderTop: "none",
-    height: "60%",
+    height: "10%",
     width: "100%",
     textAlign: "left",
     display: "inline-block",
@@ -72,18 +69,13 @@ class PostList extends React.Component {
             columns.push(
                 <Link href="/posts/[id]" as={`/posts/${v.topic}`}>
                     <div key={i} id="postDiv" style={postStyle}>
-                        <div style={{ height: "40%", border: '3px solid #DDD', borderColor: "#737373", padding: "0px" }}>
+                        <div style={{ height: "90%", padding: "0px" }}>
                             <img style={{ marginLeft: "auto", marginRight: "auto", width: "100%", height: "100%" }} src={v.url}></img>
                         </div>
                         <div style={textStyle}>
-                            <h1 style={{ textAlign: "center", fontSize: "18px" }}>
+                            <h1 style={{fontSize: "16px" }}>
                                 {v.topic}
                             </h1>
-                            <div style={{ overflow: "hidden", textOverflow: "ellipsis", height: "80%" }}>
-                                <p>
-                                    {v.subject}
-                                </p>
-                            </div>
                         </div>
                     </div>
                 </Link >
