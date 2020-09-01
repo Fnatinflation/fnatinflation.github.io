@@ -1,27 +1,37 @@
 import React from 'react';
 import Axios from 'axios';
+import PropTypes from 'prop-types';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 class SensorValueComponent extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { temperature: 'break' };
+        this.state = {
+            temperatures: [{ temperature: 0, timestamp: '' }],
+
+        };
     }
     async componentDidMount() {
         var counter = 0;
+        var length
         try {
             this.interval = setInterval(async () => {
                 if (counter % 2) {
+                    let { temperatures } = this.state;
+                    console.log(this.state.temperatures)
                     Axios.get("http://devices.webofthings.io/pi/sensors/temperature/")
                         .then(response => response.data)
                         .then(data => {
-                            console.log("Data from db", data); //PRINT ON
-                            this.setState({ temperature: data.value })
+                            var timestampTrimmed = data.timestamp.substr(11,8)
+                            temperatures.push({ temperature: data.value, timestamp: timestampTrimmed })
+                            this.setState({ temperatures: temperatures })
                         });
+
                     counter++;
                 } else {
-                    this.setState({ temperature: 'break' })
+                    console.log('even')
                     counter++;
                 }
-            }, 3000);
+            }, 2000);
         } catch (e) {
             console.log(e);
         }
@@ -31,7 +41,12 @@ class SensorValueComponent extends React.Component {
     render() {
         return (
             <div>
-                <p>{this.state.temperature}</p>
+                <LineChart width={600} height={300} data={this.state.temperatures.slice()}>
+                    <Line type="monotone" dataKey="temperature" stroke="#8884d8" />
+                    <CartesianGrid stroke="#ccc" />
+                    <XAxis dataKey="timestamp" />
+                    <YAxis />
+                </LineChart>
             </div>
         );
     }

@@ -30,6 +30,7 @@
     "react-dom": "^16.13.1",
     "react-images-upload": "^1.2.8",
     "react-spotify-api": "^2.6.0",
+    "recharts": "^1.8.5",
     "spotify-web-api-js": "^1.5.0"
   }
 }

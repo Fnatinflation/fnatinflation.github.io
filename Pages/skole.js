@@ -8,7 +8,11 @@ class Skole extends React.Component {
         return (
             <Layout>
                 <h1 style={headerText}>Skole</h1>
-                <SensorValueComponent></SensorValueComponent>
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+
+                    <SensorValueComponent></SensorValueComponent>
+                </div>
+
             </Layout>
         );
     }
