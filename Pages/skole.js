@@ -1,14 +1,14 @@
 import Layout from '../Components/Layout';
 import Form from '../Components/Form';
 import Post from '../Components/Post';
-class Posts extends React.Component {
+import SensorValueComponent from '../Components/SensorValueComponent';
+class Skole extends React.Component {
 
     render() {
         return (
             <Layout>
-                <h1 style={headerText}>Posts</h1>
-                <Post></Post>
-                <Form/>
+                <h1 style={headerText}>Skole</h1>
+                <SensorValueComponent></SensorValueComponent>
             </Layout>
         );
     }
@@ -17,4 +17,4 @@ const headerText = {
     textAlign: "center",
     padding: "20px"
 }
-export default Posts;
+export default Skole;

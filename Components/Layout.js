@@ -1,9 +1,9 @@
 import Header from './Header';
 const Layout = props => (
-  <div style={{minHeight:"100vh"}}>
+  <div>
     <Header />
-    <div style={{ backgroundColor: "#D9D9D9", paddingTop: "40px", height: "100%" }}>
-      <div style={{ margin: "0 auto", width: "65%", height: "100%", overflowY: "scroll",overflowY:"hidden",overflowX:"hidden", border: '1px solid #DDD', backgroundColor: "#F2F2F2" }}>
+    <div style={{ backgroundColor: "#D9D9D9", paddingTop: "40px",height:"100vh" }}>
+      <div style={{ margin: "0 auto", width: "65%", overflowY: "scroll",height:"100%",overflowX:"hidden", border: '1px solid #DDD', backgroundColor: "#F2F2F2" }}>
         {props.children}
       </div>
     </div>
