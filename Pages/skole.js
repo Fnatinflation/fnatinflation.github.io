@@ -1,6 +1,6 @@
 import Layout from '../Components/Layout';
 import Form from '../Components/Form';
-import Post from '../Components/Post';
+import Post from '../Components/PostList';
 import SensorValueComponent from '../Components/SensorValueComponent';
 class Skole extends React.Component {
 

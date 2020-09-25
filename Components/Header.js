@@ -13,9 +13,10 @@ const Header = () => (
     <Navbar.Brand  href="/">
       <img width="30" height="35" src="https://www.agf.dk/frontend/images/logo.png"></img></Navbar.Brand>
     <Nav className="mr-auto">
-      <Nav.Link href="/front">Home</Nav.Link>
       <Nav.Link href="/posts">Posts</Nav.Link>
       <Nav.Link href="/skole">Skole</Nav.Link>
+      <Nav.Link href="/items">Shop</Nav.Link>
+
     </Nav>
   </Navbar>
 );
