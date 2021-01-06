@@ -21,7 +21,7 @@
   "homepage": "https://github.com/Fnatinflation/fnatinflation.github.io#readme",
   "dependencies": {
     "@firebase/storage": "^0.3.42",
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "bootstrap": "^4.5.2",
     "firebase": "^7.19.1",
     "next": "^9.5.2",
